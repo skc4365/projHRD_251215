@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "label": "쇼핑몰",
+    "path": "/shoppingMall"
+  },
+  {
+    "id": 2,
+    "label": "도서관리",
+    "path": "/bookManager"
+  },
+  {
+    "id": 3,
+    "label": "사원관리",
+    "path": "/employeeManagement"
+  },
+  {
+    "id": 4,
+    "label": "수강신청",
+    "path": "/studentEnrollment"
+  },
+  {
+    "id": 5,
+    "label": "골프장관리",
+    "path": "/golfClubSystem"
+  },
+  {
+    "id": 6,
+    "label": "질병관리",
+    "path": "/diseaseTracking"
+  },
+  {
+    "id": 7,
+    "label": "오디션",
+    "path": "/auditionManagement"
+  }
+  
+]

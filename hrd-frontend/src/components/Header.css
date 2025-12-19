@@ -1,0 +1,60 @@
+/* Header 전체 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+}
+
+/* 로고 */
+.header__logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* 드롭다운 래퍼 */
+.dropdown {
+  position: relative;
+}
+
+/* 버튼 */
+.dropdown__button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 6px 10px;
+}
+
+/* 메뉴 */
+.dropdown__menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 8px 0;
+  width: 120px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 메뉴 아이템 */
+.dropdown__item {
+  padding: 8px 12px;
+}
+
+/* 링크 */
+.dropdown__link {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+/* hover 효과 */
+.dropdown__item:hover {
+  background-color: #f5f5f5;
+}
