@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ShopMemberServiceImpl implements ShopMemberService {
-	
+
 	private final ShopMemberMapper shopMemberMapper;
-	
+
 	public ShopMemberServiceImpl(ShopMemberMapper shopMemberMapper) {
 		this.shopMemberMapper = shopMemberMapper;
 	}
@@ -26,6 +26,11 @@ public class ShopMemberServiceImpl implements ShopMemberService {
 	@Override
 	public void addShopMember(ShopMember shopMember) {
 		shopMemberMapper.addShopMember(shopMember);
+	}
+
+	@Override
+	public List<ShopSales> getShopSalesList() {
+		return shopMemberMapper.getShopSalesList();
 	}
 
 }

@@ -9,10 +9,10 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface ShopMemberMapper {
 	
-	@Select("""
-		    SELECT IFNULL(MAX(custno), 0)+1 AS next_custno 
-		    FROM shop_member
-		""")
+//	@Select("""
+//		    SELECT IFNULL(MAX(custno), 0)+1 AS next_custno 
+//		    FROM shop_member
+//		""")
 	int getShopMemberNextCustno();
 	
 	@Insert("""
@@ -21,19 +21,35 @@ public interface ShopMemberMapper {
 		""")
 	void addShopMember(ShopMember shopMember);
 
-	@Select("""
-			    SELECT custno, custname, phone, address, joindate, 
-						CASE grade
-							WHEN 'A' THEN 'VIP'
-							WHEN 'B' THEN '일반'
-							WHEN 'C' THEN '직원'
-							ELSE '기타'
-						END AS grade_name, 
-						city
-				FROM shop_member
-				ORDER BY custno ASC
-			""")
+//	@Select("""
+//			    SELECT custno, custname, phone, address, joindate, 
+//						CASE grade
+//							WHEN 'A' THEN 'VIP'
+//							WHEN 'B' THEN '일반'
+//							WHEN 'C' THEN '직원'
+//							ELSE '기타'
+//						END AS grade_name, 
+//						city
+//				FROM shop_member
+//				ORDER BY custno ASC
+//			""")
 	List<ShopMember> getShopMemberList();
+
+	@Select("""
+			SELECT s.custno, m.custname, 
+				CASE m.grade
+					WHEN 'A' THEN 'VIP'
+					WHEN 'B' THEN '일반'
+					WHEN 'C' THEN '직원'
+					ELSE '기타'
+				END AS grade_name,
+				SUM(price) AS sales
+			FROM shop_money s
+			LEFT JOIN shop_member m ON s.custno = m.custno
+			GROUP BY s.custno, m.custname, m.grade
+			ORDER BY sales DESC
+		""")
+	List<ShopSales> getShopSalesList();
 
 	
 

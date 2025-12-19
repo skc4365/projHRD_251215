@@ -9,4 +9,8 @@ public interface ShopMemberService {
 	int getShopMemberNextCustno();
 
 	void addShopMember(ShopMember shopMember);
+
+	List<ShopSales> getShopSalesList();
+
+	
 }

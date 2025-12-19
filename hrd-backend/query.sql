@@ -84,9 +84,18 @@ SET
 WHERE custno = 100099;
 
 # ----- shop_money매출조회 -----
-SELECT custno, saleno, pcost, emount, price, pcode, sdate  
-FROM shop_money
-ORDER BY custno ASC;
+SELECT s.custno, m.custname, 
+	CASE m.grade
+		WHEN 'A' THEN 'VIP'
+		WHEN 'B' THEN '일반'
+		WHEN 'C' THEN '직원'
+		ELSE '기타'
+	END AS grade_name,
+	SUM(price) AS sales
+FROM shop_money s
+LEFT JOIN shop_member m ON s.custno = m.custno
+GROUP BY s.custno, m.custname, m.grade
+ORDER BY sales DESC;
 
 
 # ----- shop_money회원등록 -----

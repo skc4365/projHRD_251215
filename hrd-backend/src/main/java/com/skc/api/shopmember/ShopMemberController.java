@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skc.domain.shopmember.ShopMember;
 import com.skc.domain.shopmember.ShopMemberService;
+import com.skc.domain.shopmember.ShopSales;
 
 @RestController
 @RequestMapping("/api/shopmember")
@@ -49,8 +50,8 @@ public class ShopMemberController {
     }
 //	회원매출조회
 	@GetMapping("/sales")
-	public String getShopMemberSales() {
-		return "shopMemberSales";
+	public List<ShopSales> getShopMemberSales() {
+		return shopMemberService.getShopSalesList();
 	}
 
 //	홈으로
