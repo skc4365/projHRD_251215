@@ -1,24 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { getShopMemberSales } from '../../api/ShopMemberApi';
 
 export const ShopMemberSales = () => {
     const [salesList, setSalesList] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchSales = async () => {
-            try {
-                const res = await fetch('/api/shopmember/sales');
-                if (res.ok) {
-                    const data = await res.json();
-                    setSalesList(data);
-                }
-            } catch (err) {
-                console.error('매출 데이터 가져오기 실패:', err);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchSales();
+        getShopMemberSales()
+            .then(setSalesList)
+            .catch(console.error)
+            .finally(() => setLoading(false));
     }, []);
 
     if (loading) return <div>로딩 중...</div>;
