@@ -1,16 +1,8 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom';
-import MainPage from './pages/MainPage.jsx';
 import Layout from './layout/Layout.jsx';
-
-import EmployeeManagement from './pages/EmployeeManagement.jsx';
-import GolfClubSystem from './pages/GolfClubSystem.jsx';
-import DiseaseTracking from './pages/DiseaseTracking.jsx';
-import BookManager from './pages/BookManager.jsx';
-import StudentEnrollment from './pages/StudentEnrollment.jsx';
-import AuditionManagement from './pages/AuditionManagement.jsx';
 import { ShopMember } from './pages/shop/ShopMember.jsx';
-
+import { MainPage } from './pages/MainPage.jsx';
 
 function App() {
   // 라우팅
