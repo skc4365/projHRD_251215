@@ -1,7 +1,6 @@
 /** 폼 템플릿 
  * shopmember 회원 */
 
-
 import { GradeSelect } from './GradeSelect';
 
 export const ShopMemberForm = ({
@@ -11,6 +10,7 @@ export const ShopMemberForm = ({
     submitText = '저장',
     disableCustno = false
 }) => {
+    
     return (
         <form onSubmit={onSubmit}>
             <div>

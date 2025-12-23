@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import jakarta.validation.Valid;
 
@@ -60,5 +61,20 @@ public interface ShopMemberMapper {
 			WHERE custno = #{custno}
 			""")
 	void deleteShopMember(int custno);
+
+	@Select("""
+			SELECT custno, custname, phone, address, joindate, grade, city
+			FROM shop_member
+			WHERE custno = #{custno}
+			""")
+	ShopMember getShopMember(int custno);
+	
+	@Update("""
+			UPDATE shop_member
+			SET custname = #{custname}, phone = #{phone}, address = #{address}, 
+				joindate = #{joindate}, grade = #{grade}, city = #{city}
+			WHERE custno = #{custno}
+			""")
+	void updateShopMember(@Valid ShopMemberDTO dto);
 
 }

@@ -48,7 +48,7 @@ export const getShopMemberDetail = async (custno) => {
 };
 
 export const updateShopMember = async (form) => {
-  const res = await fetch(`/api/shopmember/${form.custno}`, {
+  const res = await fetch(`/api/shopmember/update`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(form)
@@ -61,7 +61,7 @@ export const updateShopMember = async (form) => {
 };
 
 export const deleteShopMember = async (custno) => {
-  const res = await fetch(`/api/shopmember/${custno}`, {
+  const res = await fetch(`/api/shopmember/delete/${custno}`, {
     method: 'DELETE'
   });
   if (!res.ok) {

@@ -24,6 +24,8 @@ public interface ShopMemberService {
 
 	void deleteShopMember(int custno);
 
+	void updateShopMember(@Valid ShopMemberDTO dto);
+
 	
 
 }

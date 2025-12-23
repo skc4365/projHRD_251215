@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getShopMemberDetail, updateShopMember } from '../../api/ShopMemberApi';
 import { ShopMemberForm } from '../../components/ShopMemberForm';
 
-export const ShopMemberViewEdit = ({ custno, onClose, initialForm = null }) => {
+export const ShopMemberViewEdit = ({ custno, onClose, initialForm = null, onSaved }) => {
     const [form, setForm] = useState(initialForm);
     const [msg, setMsg] = useState('');
 
@@ -24,6 +24,7 @@ export const ShopMemberViewEdit = ({ custno, onClose, initialForm = null }) => {
         try {
             await updateShopMember(form);
             setMsg('수정 완료');
+            if (onSaved) onSaved(form); // 수정 완료 시 부모 콜백 호출
             onClose();
         } catch (err) {
             setMsg(err.message || '수정 실패');

@@ -5,16 +5,19 @@ import { ShopMemberForm } from '../../components/ShopMemberForm';
 
 export const ShopMemberViewAdd = () => {
     const navigate = useNavigate();
+    const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
     const [form, setForm] = useState({
         custno: '',
         custname: '',
         phone: '',
         address: '',
-        joindate: '',
+        joindate: today,
         grade: '',
         city: ''
     });
     const [msg, setMsg] = useState('');
+    
+    
 
     useEffect(() => {
         getShopMemberViewAdd()

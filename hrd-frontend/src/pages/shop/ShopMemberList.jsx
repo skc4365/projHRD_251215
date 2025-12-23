@@ -8,6 +8,7 @@ import { nameToCode } from "../../components/gradeUtils";
 export const ShopMemberList = () => {
     const [members, setMembers] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [reload, setReload] = useState(0);
     const [editMember, setEditMember] = useState(null);
     const [busy, setBusy] = useState(false);
 
@@ -16,7 +17,8 @@ export const ShopMemberList = () => {
             .then(setMembers)
             .catch(console.error)
             .finally(() => setLoading(false));
-    }, []);
+    }, [reload]);
+  
 
     const handleDelete = async (custno) => {
         if (!window.confirm('정말 삭제하시겠습니까?')) return;
@@ -63,31 +65,33 @@ export const ShopMemberList = () => {
                             <td>{member.grade_name}</td>
                             <td>{member.city}</td>
                             <td>
-                            <button onClick={() => setEditMember({
+                                <button onClick={() => setEditMember({
                                     ...member,
                                     grade: member.grade ?? nameToCode(member.grade_name)
                                 })}>
-                                수정
-                            </button>
-                            <button onClick={() => handleDelete(member.custno)} disabled={busy}>
-                                삭제
-                            </button>
-                        </td>
+                                    수정
+                                </button>
+                                <button onClick={() => handleDelete(member.custno)} disabled={busy}>
+                                    삭제
+                                </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-                <Modal
-                    open={!!editMember}
+            {/* 모달폼-회원수정화면 */}
+            <Modal
+                open={!!editMember}
+                onClose={() => setEditMember(null)}
+            >
+                <h2>회원 수정</h2>
+                <ShopMemberViewEdit
+                    custno={editMember?.custno}
+                    initialForm={editMember}
                     onClose={() => setEditMember(null)}
-                >
-                    <h2>회원 수정</h2>
-                    <ShopMemberViewEdit
-                        custno={editMember?.custno}
-                        initialForm={editMember}
-                        onClose={() => setEditMember(null)}
-                    />
-                </Modal>
+                    onSaved={() => { setEditMember(null); setReload(r => r + 1); }}
+                />
+            </Modal>
         </div>
     );
 };

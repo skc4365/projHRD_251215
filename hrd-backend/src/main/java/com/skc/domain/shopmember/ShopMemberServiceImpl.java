@@ -44,6 +44,11 @@ public class ShopMemberServiceImpl implements ShopMemberService {
 		shopMemberMapper.deleteShopMember(custno);
 	}
 
+	@Override
+	public void updateShopMember(@Valid ShopMemberDTO dto) {
+		shopMemberMapper.updateShopMember(dto);
+	}
+
 
 
 }

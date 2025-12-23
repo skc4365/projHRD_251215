@@ -6,7 +6,9 @@ import java.util.Map;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,11 +57,25 @@ public class ShopMemberController {
 	}
 	
 //	회원 삭제
-	@DeleteMapping("/delete")
-	public ResponseEntity<Map<String, String>> deleteShopMember(@RequestBody Map<String, Integer> map) {
-		int custno = map.get("custno");
+	@DeleteMapping("/delete/{custno}")
+	public ResponseEntity<Map<String, String>> deleteShopMember(@PathVariable int custno) {
+//		int custno = map.get("custno");
 		shopMemberService.deleteShopMember(custno);
 		return ResponseEntity.ok(Map.of("message", "회원삭제가 완료되었습니다."));
+	}
+////	회원 삭제
+//	@DeleteMapping("/delete")
+//	public ResponseEntity<Map<String, String>> deleteShopMember(@RequestBody Map<String, Integer> map) {
+//		int custno = map.get("custno");
+//		shopMemberService.deleteShopMember(custno);
+//		return ResponseEntity.ok(Map.of("message", "회원삭제가 완료되었습니다."));
+//	}
+	
+//	회원 정보 수정
+	@PutMapping("/update")
+	public Map<String, String> updateShopMember(@Valid @RequestBody ShopMemberDTO dto) {
+		shopMemberService.updateShopMember(dto);
+		return Map.of("message", "ok");
 	}
 
 //	회원매출조회
