@@ -18,7 +18,9 @@
 }
 
 .sub-content {
-    height: auto;
+    
+    height: 450px;
+    overflow-y: scroll;
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
