@@ -45,16 +45,7 @@ export const ShopMemberViewAdd = () => {
             await addShopMember(form);
 
             setMsg('등록되었습니다.');
-            // setForm({
-            //     custno: form.custno + 1,
-            //     custname: '',
-            //     phone: '',
-            //     address: '',
-            //     joindate: '',
-            //     grade: '',
-            //     city: ''
-            // });
-
+            
             // 등록 후 목록으로 이동
             navigate('/shopmember/list');
 

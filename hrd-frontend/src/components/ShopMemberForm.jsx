@@ -12,7 +12,7 @@ export const ShopMemberForm = ({
 }) => {
     
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} >
             <div>
                 <label>
                     회원번호:
@@ -29,7 +29,7 @@ export const ShopMemberForm = ({
 
             <div>
                 <label>
-                    이름:
+                    이  름:
                     <input
                         type="text"
                         name="custname"
@@ -43,7 +43,7 @@ export const ShopMemberForm = ({
 
             <div>
                 <label>
-                    전화:
+                    전  화:
                     <input
                         type="tel"
                         name="phone"
@@ -57,7 +57,7 @@ export const ShopMemberForm = ({
 
             <div>
                 <label>
-                    주소:
+                    주  소:
                     <input
                         type="text"
                         name="address"
@@ -82,14 +82,14 @@ export const ShopMemberForm = ({
 
             <div>
                 <label>
-                    등급:
+                    등  급:
                     <GradeSelect value={form.grade} onChange={onChange} />
                 </label>
             </div>
 
             <div>
                 <label>
-                    도시:
+                    도  시:
                     <input
                         type="text"
                         name="city"
