@@ -33,18 +33,18 @@
   position: absolute;
   right: 0;
   top: 100%;
-  margin-top: 4px;
+  margin-top: 2px;
   background-color: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid #96ad16;
   list-style: none;
-  padding: 8px 0;
+  padding: 4px 0;
   width: 120px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* 메뉴 아이템 */
 .dropdown__item {
-  padding: 8px 12px;
+  padding: 4px 12px;
 }
 
 /* 링크 */

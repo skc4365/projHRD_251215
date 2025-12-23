@@ -32,8 +32,8 @@ public class ShopMemberController {
 
 //	홈쇼핑 메인
 	@GetMapping
-	public String getShopMember() {
-		return "홈쇼핑 메인";
+	public ResponseEntity<Map<String, String>> getShopMember() {
+		return ResponseEntity.ok(Map.of("title", "홈쇼핑 메인"));
 	}
 
 //	홈쇼핑 화면-[다음회원번호]회원등록 
@@ -63,13 +63,6 @@ public class ShopMemberController {
 		shopMemberService.deleteShopMember(custno);
 		return ResponseEntity.ok(Map.of("message", "회원삭제가 완료되었습니다."));
 	}
-////	회원 삭제
-//	@DeleteMapping("/delete")
-//	public ResponseEntity<Map<String, String>> deleteShopMember(@RequestBody Map<String, Integer> map) {
-//		int custno = map.get("custno");
-//		shopMemberService.deleteShopMember(custno);
-//		return ResponseEntity.ok(Map.of("message", "회원삭제가 완료되었습니다."));
-//	}
 	
 //	회원 정보 수정
 	@PutMapping("/update")

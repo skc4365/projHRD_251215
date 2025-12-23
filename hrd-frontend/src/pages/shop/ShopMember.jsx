@@ -7,6 +7,7 @@ import { getShopMember } from "../../api/ShopMemberApi";
 import { Route, Routes } from "react-router-dom";
 import '../../components/Sub.css'
 import { ShopMemberViewAdd } from "./ShopMemberViewAdd";
+import { ShopMemberMain } from "./ShopMemberMain";
 
 export const ShopMember = () => {
     const [items, setItems] = useState([]);
@@ -34,6 +35,7 @@ export const ShopMember = () => {
                     <Route path="view-add" element={<ShopMemberViewAdd />} />
                     <Route path="list" element={<ShopMemberList />} />
                     <Route path="sales" element={<ShopMemberSales />} />
+                    <Route path="" element={<ShopMemberMain />} />
                 </Routes>
             </div>
 
