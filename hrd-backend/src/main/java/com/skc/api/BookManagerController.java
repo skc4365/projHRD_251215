@@ -14,11 +14,11 @@ import com.skc.domain.bookmanager.BookManagerService;
 @RequestMapping("/api/bookmanager")
 public class BookManagerController {
 	
-	private final BookManagerService bookManagerService;
-	
-	public BookManagerController(BookManagerService bookManagerService) {
-		this.bookManagerService = bookManagerService;
-	}
+//	private final BookManagerService bookManagerService;
+//	
+//	public BookManagerController(BookManagerService bookManagerService) {
+//		this.bookManagerService = bookManagerService;
+//	}
 	
 	@GetMapping
 	public ResponseEntity<Map<String, String>> getBookManager() {

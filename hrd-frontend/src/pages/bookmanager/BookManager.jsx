@@ -1,4 +1,10 @@
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import { getBookManager } from "../../api/BookManagerApi";
+import { BookManagerMain } from "./BookManagerMain";
+import { BookManagerViewAdd } from "./BookManagerViewAdd";
+import { BookManagerRent } from "./BookManagerRent";
+import { BookManagerList } from "./BookManagerList";
 
 export const BookManager = () => {
     const [items, setItems] = useState([]);

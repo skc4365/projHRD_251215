@@ -22,7 +22,7 @@ function App() {
           {/* 쇼핑몰 */}
           <Route path="/shopmember/*" element={<ShopMember />} />
           {/* 도서관리 */}
-          {/* <Route path="/bookManager" element={<BookManager />} /> */}
+          <Route path="/bookManager/*" element={<BookManager />} />
           {/* 사원관리 */}
           {/* <Route path="/employeeManagement" element={<EmployeeManagement />} /> */}
           {/* 수강신청 */}
