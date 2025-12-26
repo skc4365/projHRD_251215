@@ -12,4 +12,7 @@ public record ShopMemberDTO(
 		LocalDate joindate, 
 		String grade,
 		String city
-		) {}
+) {}
+
+/** 
+ * */
