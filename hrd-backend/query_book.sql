@@ -68,10 +68,13 @@ FROM book_member
 ORDER BY custno ASC;
 
 # ----- book_member회원수정 -----
-(10001, '홍길동',  '2019-02-15', 'A', '경기도 수원시 ...');
-UPDATE book_member
+#(10001, '홍길동',  '2019-02-15', 'A', '경기도 수원시 ...');
+# select * from book_member;
+UPDATE book_member 
 SET
  	custname = '홍길동',
  	joindate = '2019-02-15',
  	grade 	= 'A',
  	address 	= '경기도 수정수정'
+WHERE custno = 10001;
+
