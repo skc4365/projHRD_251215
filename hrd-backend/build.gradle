@@ -32,6 +32,10 @@ dependencies {
 
 // .env파일읽어서, 스프링부트 환경변수로 등록
 	implementation 'me.paulschwarz:spring-dotenv:4.0.0'
+	
+//	보안 설정
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	testImplementation 'org.springframework.security:spring-security-test'
 
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'

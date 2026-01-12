@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { getMenu } from "../api/mainApi";
 
-const MainPage = () => {
+export const MainPage = () => {
     useEffect(() => {
         getMenu()
             .then(data => console.log(data));
@@ -10,4 +10,3 @@ const MainPage = () => {
 
 };
 
-export default MainPage;
